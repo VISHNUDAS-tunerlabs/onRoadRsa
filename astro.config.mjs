@@ -3,5 +3,6 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   integrations: [tailwind()],
-  site: 'https://oncallrsa.ae',
+  site: 'https://vishnudas-tunerlabs.github.io',
+  base: '/onRoadRsa',
 });
