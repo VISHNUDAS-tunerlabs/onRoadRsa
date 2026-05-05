@@ -1,0 +1,60 @@
+Primary Colors
+Deep Black / Charcoal (#0B0B0B / #121212) → Premium, strong base
+Dark Blue (#0F172A) → Trust + reliability
+Accent Colors
+Amber / Safety Orange (#F59E0B) → Emergency, visibility (use sparingly)
+White (#FFFFFF) → Clean contrast
+Optional Highlight
+Electric Blue (#2563EB) → For links & interactive elements
+
+👉 Rule: Dark base + bright CTA = high conversion
+
+✍️ Typography
+Headings (Strong & Modern)
+Sans-serif (bold, clean)
+Examples:
+Inter
+Poppins
+Montserrat
+Body Text
+Simple and highly readable
+Medium weight, good spacing
+
+👉 Avoid decorative fonts—this is a utility + trust service
+
+🧩 UI Style
+Layout
+Spacious, minimal
+Clear sections with strong hierarchy
+Card-based services (you already planned this 👍)
+Buttons (Very Important)
+Rounded corners
+High contrast (Amber or Blue on dark background)
+Sticky “Call Now” button on mobile
+🚗 Visual Style
+Images
+Real-life roadside scenarios (UAE-specific if possible)
+Night scenes work well with your dark theme
+Focus on:
+Technician + car
+Service in action
+Clean, premium look
+Icons
+Simple line icons or minimal filled icons
+Consistent style across all services
+⚡ User Experience (Critical for Conversion)
+Above the Fold
+Strong headline
+Emergency CTA (Call Now)
+Trust indicators (24/7, UAE coverage)
+Mobile First
+Most users will come from mobile during emergencies
+Ensure:
+Big tap buttons
+Fast loading
+Click-to-call
+🧠 Psychology Behind This Theme
+Dark theme → premium + serious + reliable
+Amber highlights → urgency + action
+Minimal layout → clarity during stress
+Real visuals → builds trust instantly

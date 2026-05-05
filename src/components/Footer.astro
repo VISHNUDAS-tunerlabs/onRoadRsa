@@ -1,0 +1,79 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-[#0B0B0B] border-t border-white/6 py-12 md:py-16">
+  <div class="max-w-7xl mx-auto px-5 md:px-10">
+
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-10 mb-12">
+
+      <!-- Brand -->
+      <div>
+        <a href="/" class="inline-block mb-4" aria-label="OnCall RSA Home">
+          <span class="text-xl font-extrabold tracking-tight">
+            <span class="text-white">OnCall</span><span class="text-amber-400">RSA</span>
+          </span>
+        </a>
+        <p class="text-white/40 text-sm leading-relaxed max-w-xs">
+          Your trusted 24/7 roadside assistance partner across the UAE.
+          Fast, professional, always available.
+        </p>
+        <div class="flex items-center gap-1.5 mt-4">
+          <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+          <span class="text-green-400/80 text-xs font-medium">Available 24/7</span>
+        </div>
+      </div>
+
+      <!-- Quick links -->
+      <div>
+        <h4 class="text-white/90 text-sm font-bold uppercase tracking-wider mb-5">Quick Links</h4>
+        <nav class="flex flex-col gap-3">
+          <a href="#home" class="text-white/45 hover:text-amber-400 text-sm transition-colors">Home</a>
+          <a href="#about" class="text-white/45 hover:text-amber-400 text-sm transition-colors">About Us</a>
+          <a href="#services" class="text-white/45 hover:text-amber-400 text-sm transition-colors">Services</a>
+          <a href="#why-us" class="text-white/45 hover:text-amber-400 text-sm transition-colors">Why Choose Us</a>
+          <a href="#contact" class="text-white/45 hover:text-amber-400 text-sm transition-colors">Contact</a>
+        </nav>
+      </div>
+
+      <!-- Contact summary -->
+      <div>
+        <h4 class="text-white/90 text-sm font-bold uppercase tracking-wider mb-5">Contact</h4>
+        <div class="space-y-3">
+          <a href="tel:8002477" class="flex items-center gap-2.5 text-amber-400 hover:text-amber-300 font-bold text-lg transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="flex-shrink-0">
+              <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.58.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.24 1.01L6.6 10.8z"/>
+            </svg>
+            800 2477
+          </a>
+          <a href="mailto:oncall2477@gmail.com" class="flex items-center gap-2.5 text-white/40 hover:text-white/70 text-sm transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="flex-shrink-0">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            oncall2477@gmail.com
+          </a>
+          <p class="flex items-start gap-2.5 text-white/40 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="flex-shrink-0 mt-0.5">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            International City, Greece Cluster L14, Dubai, UAE
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-white/6 pt-7 flex flex-col sm:flex-row justify-between items-center gap-3">
+      <p class="text-white/25 text-xs">
+        &copy; {year} OnCall RSA. All rights reserved.
+      </p>
+      <p class="text-white/20 text-xs">
+        Dubai &middot; Abu Dhabi &middot; Sharjah &middot; Ajman
+      </p>
+    </div>
+
+  </div>
+</footer>
