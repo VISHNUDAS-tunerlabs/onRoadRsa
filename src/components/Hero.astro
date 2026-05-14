@@ -6,12 +6,18 @@
   <!-- Background -->
   <div class="absolute inset-0 bg-[#0B0B0B]">
     <!-- Hero image -->
-    <img
-      src={`${import.meta.env.BASE_URL}car-breakdown-main.jpeg`}
-      alt="Roadside assistance technician helping a stranded driver"
-      class="absolute inset-0 w-full h-full object-cover object-center opacity-90"
-      loading="eager"
-    />
+    <picture class="absolute inset-0 w-full h-full">
+      <source
+        media="(max-width: 767px)"
+        srcset={`${import.meta.env.BASE_URL}main_banner_mobile.png`}
+      />
+      <img
+        src={`${import.meta.env.BASE_URL}car-breakdown-main.jpeg`}
+        alt="Roadside assistance technician helping a stranded driver"
+        class="absolute inset-0 w-full h-full object-cover object-center opacity-90"
+        loading="eager"
+      />
+    </picture>
     <!-- Dark overlay for text readability -->
     <div class="absolute inset-0 bg-gradient-to-r from-[#0B0B0B]/75 via-[#0B0B0B]/35 to-transparent"></div>
     <!-- Bottom fade -->
