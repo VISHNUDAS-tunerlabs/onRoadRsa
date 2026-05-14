@@ -67,24 +67,22 @@ const services = [
     </div>
 
     <!-- Marquee container -->
-    <div class="overflow-hidden reveal" style="transition-delay:0.3s;">
+    <div class="overflow-hidden">
       <div class="marquee-track gap-5 py-2">
         <!-- First set -->
         {services.map((service) => (
           <div class="flex-shrink-0 w-72 md:w-80 h-96 relative rounded-2xl overflow-hidden group cursor-default shadow-[0_4px_24px_rgba(0,0,0,0.4)] hover:shadow-[0_8px_40px_rgba(0,0,0,0.6)] transition-all duration-500 hover:-translate-y-2">
-            <!-- Image -->
             <img
               src={service.image}
               alt={service.title}
+              width="320"
+              height="384"
+              loading="eager"
               class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <!-- Gradient overlay -->
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10"></div>
-            <!-- Hover amber tint -->
             <div class="absolute inset-0 bg-amber-400/0 group-hover:bg-amber-400/8 transition-colors duration-500"></div>
-            <!-- Content -->
             <div class="absolute bottom-0 left-0 right-0 p-6">
-              <!-- Icon badge -->
               <div class="w-10 h-10 bg-amber-400 rounded-xl flex items-center justify-center text-black mb-4 shadow-[0_4px_16px_rgba(245,158,11,0.4)]">
                 <Fragment set:html={service.icon} />
               </div>
@@ -96,19 +94,17 @@ const services = [
         <!-- Duplicate for seamless loop -->
         {services.map((service) => (
           <div class="flex-shrink-0 w-72 md:w-80 h-96 relative rounded-2xl overflow-hidden group cursor-default shadow-[0_4px_24px_rgba(0,0,0,0.4)] hover:shadow-[0_8px_40px_rgba(0,0,0,0.6)] transition-all duration-500 hover:-translate-y-2">
-            <!-- Image -->
             <img
               src={service.image}
               alt={service.title}
+              width="320"
+              height="384"
+              loading="lazy"
               class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <!-- Gradient overlay -->
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10"></div>
-            <!-- Hover amber tint -->
             <div class="absolute inset-0 bg-amber-400/0 group-hover:bg-amber-400/8 transition-colors duration-500"></div>
-            <!-- Content -->
             <div class="absolute bottom-0 left-0 right-0 p-6">
-              <!-- Icon badge -->
               <div class="w-10 h-10 bg-amber-400 rounded-xl flex items-center justify-center text-black mb-4 shadow-[0_4px_16px_rgba(245,158,11,0.4)]">
                 <Fragment set:html={service.icon} />
               </div>

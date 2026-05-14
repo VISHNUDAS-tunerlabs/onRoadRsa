@@ -66,8 +66,13 @@ const {
         display: flex;
         width: max-content;
         animation: marquee 45s linear infinite;
+        animation-play-state: paused;
+        will-change: transform;
       }
-      .marquee-track:hover {
+      .marquee-track.is-ready {
+        animation-play-state: running;
+      }
+      .marquee-track.is-ready:hover {
         animation-play-state: paused;
       }
     </style>
@@ -86,6 +91,11 @@ const {
         { threshold: 0.1 }
       );
       document.querySelectorAll('.reveal').forEach((el) => revealObs.observe(el));
+
+      // Start marquee only after all images are loaded and layout is stable
+      window.addEventListener('load', () => {
+        document.querySelectorAll('.marquee-track').forEach((el) => el.classList.add('is-ready'));
+      });
 
       // Header glass on scroll
       const header = document.getElementById('site-header');
