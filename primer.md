@@ -7,20 +7,26 @@ Fully built Astro v4 + Tailwind CSS v3 static site, live on GitHub Pages at:
 GitHub Actions auto-deploys on every push to `master`. All images loading correctly.
 
 ## What Was Accomplished This Session
-- **GitHub Pages deployment configured end-to-end:**
-  - Created `.github/workflows/deploy.yml` — builds with Node 20, `npm ci` + `npm run build`, uploads `dist/` via `actions/upload-pages-artifact@v3`, deploys via `actions/deploy-pages@v4`
-  - Updated `astro.config.mjs`: `site` set to `https://vishnudas-tunerlabs.github.io`, `base` set to `/onRoadRsa/` (trailing slash required)
-  - Updated `.gitignore` to exclude `dist/`, `.astro/`, `.DS_Store`
-- **Fixed broken images on GitHub Pages:**
-  - Root cause: absolute paths like `/battery-change.jpg` don't include the base path
-  - Fix: replaced all `/image.jpg` references with `${import.meta.env.BASE_URL}image.jpg` in `Hero.astro`, `Services.astro`, and `Layout.astro` (favicon)
-  - Secondary fix: `base` needed a trailing slash — without it, `BASE_URL` = `/onRoadRsa` (no slash) causing paths like `/onRoadRsaimage.jpg`. With trailing slash, `BASE_URL` = `/onRoadRsa/` → correct paths.
+- **Redesigned "What We Do" section (`src/components/Services.astro`) completely:**
+  - Replaced horizontal marquee with a full-screen horizontal infinity carousel
+  - Each card is `min-h-[88vh]` — fills the viewport
+  - Left side: service image in its own `rounded-2xl` curved card (with padding inside outer card)
+  - Right side: amber icon, title, full description (from `guides/whatWedo.md`), bullet highlights, CTA button
+  - Pill navigation buttons below the heading — clicking a pill smooth-scrolls/jumps to that card
+  - Active pill highlighted in amber; updates automatically as carousel advances
+  - Dot indicators below carousel — active dot expands to a wide amber bar
+  - Auto-advances every 5 seconds, pauses on hover, supports touch swipe on mobile
+  - Loops infinitely (wraps back to first after last)
+- **Content enriched** — all service descriptions and highlights pulled from `guides/whatWedo.md`
+- **Heading updated** — removed "in UAE" → now reads *Our Roadside Assistance / Services*
+- **Removed card number badges** (01, 02... overlays on images)
+- **Restored `battery-change.jpg`** — was accidentally deleted from `public/`; copied back from `dist/`
 
 ## Immediate Next Steps
 1. **Logo asset** — replace text logo "OnCallRSA" in Header + Footer with actual SVG/PNG file
 2. **Active nav indicator** — highlight current section's nav link on scroll (IntersectionObserver per section)
 3. **Sitemap + SEO** — add `@astrojs/sitemap`, canonical URLs
-4. **Mobile QA** — test on real device: service card marquee, hero image, overall layout
+4. **Mobile QA** — test carousel swipe, pill nav, and card layout on real device
 5. **Custom domain** — when `oncallrsa.ae` DNS is ready:
    - Add `public/CNAME` file containing `oncallrsa.ae`
    - Update `astro.config.mjs`: `site: 'https://oncallrsa.ae'`, remove `base`
@@ -32,8 +38,10 @@ GitHub Actions auto-deploys on every push to `master`. All images loading correc
 - Phone number `800 2477` hardcoded everywhere — confirm this is final before launch
 - 3 npm audit vulnerabilities (2 moderate, 1 high) — non-critical for static site, review before launch
 
-## Key Decisions This Session
-- GitHub Pages source set to **GitHub Actions** (not branch deploy) — required for the workflow to serve output
+## Key Decisions & Notes
 - `base: '/onRoadRsa/'` with trailing slash is critical — controls `BASE_URL` and all asset paths
 - All public asset references use `import.meta.env.BASE_URL` prefix — must be reverted when switching to custom domain
-- `dist/` excluded from git — GitHub Actions builds it fresh on every deploy from source
+- `dist/` excluded from git — GitHub Actions builds fresh on every deploy
+- GitHub Pages source set to **GitHub Actions** (not branch deploy)
+- UAE ISPs (Etisalat/du) intermittently block Fastly CDN (GitHub Pages). Use mobile hotspot or VPN to verify deployments if the site appears unreachable on office/home network
+- `guides/whatWedo.md` contains the canonical service copy — always derive service descriptions and highlights from this file

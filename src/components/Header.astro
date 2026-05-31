@@ -5,13 +5,17 @@
   id="site-header"
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
 >
-  <div class="max-w-7xl mx-auto px-5 md:px-10 flex items-center justify-between h-16 md:h-20">
+  <div class="max-w-7xl mx-auto px-5 md:px-10 flex items-center justify-between h-12 md:h-14">
 
     <!-- Logo -->
     <a href="/" aria-label="OnCall RSA – Home" class="flex-shrink-0">
-      <span class="text-xl md:text-2xl font-extrabold tracking-tight select-none">
-        <span class="text-white">OnCall</span><span class="text-amber-400">RSA</span>
-      </span>
+      <img
+        src={`${import.meta.env.BASE_URL}logo-icon.svg`}
+        alt="OnCall RSA"
+        width="40"
+        height="40"
+        class="w-7 h-7 md:w-8 md:h-8"
+      />
     </a>
 
     <!-- Desktop Nav (absolutely centered) -->

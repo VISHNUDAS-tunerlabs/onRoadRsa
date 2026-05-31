@@ -9,7 +9,14 @@ const year = new Date().getFullYear();
 
       <!-- Brand -->
       <div>
-        <a href="/" class="inline-block mb-4" aria-label="OnCall RSA Home">
+        <a href="/" class="inline-flex items-center gap-2.5 mb-4" aria-label="OnCall RSA Home">
+          <img
+            src={`${import.meta.env.BASE_URL}logo-icon.svg`}
+            alt="OnCall RSA"
+            width="32"
+            height="32"
+            class="w-7 h-7"
+          />
           <span class="text-xl font-extrabold tracking-tight">
             <span class="text-white">OnCall</span><span class="text-amber-400">RSA</span>
           </span>
