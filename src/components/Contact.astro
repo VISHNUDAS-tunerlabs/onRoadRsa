@@ -1,4 +1,5 @@
 ---
+const WA_NUMBER = '9633076761';
 ---
 
 <section id="contact" class="py-24 md:py-32 bg-[#0B0B0B] relative overflow-hidden">
@@ -19,7 +20,7 @@
         <span class="text-amber-400">Roadside Assistance</span>
       </h2>
       <p class="reveal text-white/50 text-base md:text-lg mt-4 max-w-md mx-auto" style="transition-delay:0.2s;">
-        Need urgent help? Our 24/7 team is just a call away.
+        Need urgent help? Our 24/7 team is just a message away.
       </p>
     </div>
 
@@ -90,31 +91,92 @@
         </div>
       </div>
 
-      <!-- Right: Action card -->
+      <!-- Right: WhatsApp form -->
       <div class="reveal flex flex-col gap-5" style="transition-delay:0.2s;">
 
-        <!-- Primary CTA card -->
-        <div class="bg-amber-400 rounded-2xl p-8 md:p-10 flex-1 flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 bg-black/15 rounded-xl flex items-center justify-center mb-6">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="black">
-                <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.58.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.24 1.01L6.6 10.8z"/>
+        <div class="bg-[#111111] border border-white/8 rounded-2xl p-8 md:p-10 flex-1">
+
+          <!-- Form header -->
+          <div class="flex items-center gap-3 mb-7">
+            <div class="w-10 h-10 bg-[#25D366]/15 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#25D366">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
               </svg>
             </div>
-            <h3 class="text-black font-extrabold text-2xl mb-2">Need Help Now?</h3>
-            <p class="text-black/65 text-base leading-relaxed mb-8">
-              Don't wait. Call us immediately for fast emergency roadside assistance anywhere in UAE.
-            </p>
+            <div>
+              <h3 class="text-white font-bold text-base">Send us a WhatsApp</h3>
+              <p class="text-white/40 text-xs mt-0.5">We'll reply within minutes</p>
+            </div>
           </div>
-          <a
-            href="tel:8002477"
-            class="w-full flex items-center justify-center gap-3 bg-black hover:bg-black/85 text-amber-400 font-extrabold text-xl py-4 rounded-xl transition-colors duration-200"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.58.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.24 1.01L6.6 10.8z"/>
-            </svg>
-            800 2477
-          </a>
+
+          <form id="wa-contact-form" class="space-y-4" novalidate>
+
+            <!-- Name -->
+            <div>
+              <label class="block text-white/50 text-xs font-semibold uppercase tracking-wider mb-1.5" for="wa-name">Your Name</label>
+              <input
+                id="wa-name"
+                type="text"
+                placeholder="e.g. Ahmed Al Mansoori"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/25 focus:outline-none focus:border-[#25D366]/60 focus:bg-white/8 transition-colors"
+              />
+            </div>
+
+            <!-- Phone -->
+            <div>
+              <label class="block text-white/50 text-xs font-semibold uppercase tracking-wider mb-1.5" for="wa-phone">Your Phone Number</label>
+              <input
+                id="wa-phone"
+                type="tel"
+                placeholder="e.g. +971 50 123 4567"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/25 focus:outline-none focus:border-[#25D366]/60 focus:bg-white/8 transition-colors"
+              />
+            </div>
+
+            <!-- Service -->
+            <div>
+              <label class="block text-white/50 text-xs font-semibold uppercase tracking-wider mb-1.5" for="wa-service">Service Needed</label>
+              <select
+                id="wa-service"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#25D366]/60 focus:bg-white/8 transition-colors appearance-none cursor-pointer"
+              >
+                <option value="" class="bg-[#111]">-- Select a service --</option>
+                <option value="Towing" class="bg-[#111]">Towing</option>
+                <option value="Battery Jump Start" class="bg-[#111]">Battery Jump Start</option>
+                <option value="Tire Change" class="bg-[#111]">Tire Change</option>
+                <option value="Fuel Delivery" class="bg-[#111]">Fuel Delivery</option>
+                <option value="Car Lockout" class="bg-[#111]">Car Lockout</option>
+                <option value="On-Site Repair" class="bg-[#111]">On-Site Repair</option>
+                <option value="Other" class="bg-[#111]">Other</option>
+              </select>
+            </div>
+
+            <!-- Location / Message -->
+            <div>
+              <label class="block text-white/50 text-xs font-semibold uppercase tracking-wider mb-1.5" for="wa-message">Your Location / Message</label>
+              <textarea
+                id="wa-message"
+                rows="3"
+                placeholder="e.g. Near Dubai Mall, Sheikh Zayed Road — car won't start"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/25 focus:outline-none focus:border-[#25D366]/60 focus:bg-white/8 transition-colors resize-none"
+              ></textarea>
+            </div>
+
+            <!-- Error message -->
+            <p id="wa-error" class="hidden text-red-400 text-xs font-medium">Please fill in all fields before sending.</p>
+
+            <!-- Submit -->
+            <button
+              type="submit"
+              class="w-full flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20b858] active:scale-[0.98] text-white font-bold text-base py-3.5 rounded-xl transition-all duration-200"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+              </svg>
+              Send via WhatsApp
+            </button>
+
+          </form>
         </div>
 
         <!-- Availability note -->
@@ -125,8 +187,38 @@
             <div class="text-white/40 text-xs mt-0.5">24/7 · 365 days a year · UAE-wide</div>
           </div>
         </div>
+
       </div>
 
     </div>
   </div>
 </section>
+
+<script define:vars={{ WA_NUMBER }}>
+  document.getElementById('wa-contact-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name    = document.getElementById('wa-name').value.trim();
+    const phone   = document.getElementById('wa-phone').value.trim();
+    const service = document.getElementById('wa-service').value;
+    const message = document.getElementById('wa-message').value.trim();
+    const error   = document.getElementById('wa-error');
+
+    if (!name || !phone || !service || !message) {
+      error.classList.remove('hidden');
+      return;
+    }
+    error.classList.add('hidden');
+
+    const text =
+      `Hi Oncall RSA! 👋\n\n` +
+      `*Name:* ${name}\n` +
+      `*Phone:* ${phone}\n` +
+      `*Service Needed:* ${service}\n` +
+      `*Location / Message:* ${message}\n\n` +
+      `Please assist me as soon as possible. Thank you!`;
+
+    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  });
+</script>
