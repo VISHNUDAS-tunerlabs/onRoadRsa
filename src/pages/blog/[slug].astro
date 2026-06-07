@@ -126,14 +126,12 @@ const blogBase = `${import.meta.env.BASE_URL}blog`;
               {related.map((p) => (
                 <a
                   href={`${blogBase}/${p.slug}/`}
-                  class="group bg-white/[0.03] border border-white/10 hover:border-amber-400/30 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1"
+                  class="group bg-white/[0.03] border border-white/10 hover:border-amber-400/30 rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1"
                 >
-                  <div class="relative h-32 overflow-hidden flex items-center justify-center bg-gradient-to-br from-amber-400/[0.07] via-white/[0.02] to-transparent">
-                    <div class="w-12 h-12 rounded-xl bg-amber-400/10 border border-amber-400/20 text-amber-400 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
-                      <BlogIcon slug={p.slug} class="w-5 h-5" />
-                    </div>
-                  </div>
-                  <div class="p-4">
+                  <div class="flex items-start gap-3">
+                    <span class="flex-shrink-0 w-9 h-9 rounded-xl bg-amber-400/10 border border-amber-400/20 text-amber-400 flex items-center justify-center mt-0.5 transition-transform duration-300 group-hover:scale-110">
+                      <BlogIcon slug={p.slug} class="w-4 h-4" />
+                    </span>
                     <h4 class="text-sm font-bold text-white leading-snug group-hover:text-amber-400 transition-colors line-clamp-2">
                       {p.data.title}
                     </h4>
