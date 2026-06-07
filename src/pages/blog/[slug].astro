@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import BlogIcon from '../../components/BlogIcon.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -94,15 +95,14 @@ const blogBase = `${import.meta.env.BASE_URL}blog`;
           </span>
         </div>
 
-        <!-- Hero image -->
-        <div class="relative h-56 md:h-80 rounded-2xl overflow-hidden mb-10 border border-white/10">
-          <img
-            src={`${import.meta.env.BASE_URL}${post.data.image}`}
-            alt={post.data.title}
-            class="absolute inset-0 w-full h-full object-cover"
-            transition:name={`blog-image-${post.slug}`}
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-[#0B0B0B]/40 via-transparent to-transparent"></div>
+        <!-- Hero icon panel -->
+        <div
+          class="relative h-56 md:h-80 rounded-2xl overflow-hidden mb-10 border border-white/10 flex items-center justify-center bg-gradient-to-br from-amber-400/[0.07] via-white/[0.02] to-transparent"
+          transition:name={`blog-icon-${post.slug}`}
+        >
+          <div class="w-24 h-24 md:w-28 md:h-28 rounded-3xl bg-amber-400/10 border border-amber-400/20 text-amber-400 flex items-center justify-center">
+            <BlogIcon slug={post.slug} class="w-11 h-11 md:w-[3.25rem] md:h-[3.25rem]" />
+          </div>
         </div>
 
         <!-- Article content -->
@@ -137,14 +137,10 @@ const blogBase = `${import.meta.env.BASE_URL}blog`;
                   href={`${blogBase}/${p.slug}/`}
                   class="group bg-white/[0.03] border border-white/10 hover:border-amber-400/30 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1"
                 >
-                  <div class="relative h-32 overflow-hidden">
-                    <img
-                      src={`${import.meta.env.BASE_URL}${p.data.image}`}
-                      alt={p.data.title}
-                      class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-transparent to-transparent opacity-70"></div>
+                  <div class="relative h-32 overflow-hidden flex items-center justify-center bg-gradient-to-br from-amber-400/[0.07] via-white/[0.02] to-transparent">
+                    <div class="w-12 h-12 rounded-xl bg-amber-400/10 border border-amber-400/20 text-amber-400 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+                      <BlogIcon slug={p.slug} class="w-5 h-5" />
+                    </div>
                   </div>
                   <div class="p-4">
                     <h4 class="text-sm font-bold text-white leading-snug group-hover:text-amber-400 transition-colors line-clamp-2">
