@@ -1,0 +1,103 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+
+const dateFormatter = new Intl.DateTimeFormat('en-AE', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const initials = (name: string) =>
+  name.split(' ').map((w) => w[0]).join('').toUpperCase();
+
+const heartIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-6.7-4.35-9.33-8.2C1.18 10.5 1.5 7.5 4 6c2-.9 4 .2 5 2 1-1.8 3-2.9 5-2 2.5 1.5 2.82 4.5 1.33 6.8C18.7 16.65 12 21 12 21z"/></svg>`;
+---
+
+<Layout
+  title="Blog – Roadside Tips & Guides for UAE Drivers | OnCall RSA"
+  description="Practical roadside assistance tips, maintenance guides and UAE driving advice from the OnCall RSA team — battery care, tyre safety, summer prep, and more."
+  transitions
+>
+  <Header />
+  <main>
+    <section id="blog" class="pt-28 pb-24 md:pt-36 md:pb-32 bg-[#0B0B0B] relative overflow-hidden">
+
+      <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-amber-500/3 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-5 md:px-10">
+
+        <!-- Section header -->
+        <div class="text-center mb-16">
+          <div class="reveal inline-flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-widest mb-5">
+            <span class="w-6 h-px bg-amber-400"></span>
+            Our Blog
+            <span class="w-6 h-px bg-amber-400"></span>
+          </div>
+          <h1 class="reveal text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight" style="transition-delay:0.1s;">
+            Roadside Tips & Guides<br />
+            <span class="text-amber-400">for UAE Drivers</span>
+          </h1>
+          <p class="reveal text-white/50 text-base md:text-lg mt-4 max-w-xl mx-auto" style="transition-delay:0.2s;">
+            Practical advice on battery care, tyre safety, summer prep and more — straight
+            from the team that handles UAE roadside emergencies every day.
+          </p>
+        </div>
+
+        <!-- Card grid -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {posts.map((post, i) => (
+            <a
+              href={`${import.meta.env.BASE_URL}blog/${post.slug}/`}
+              class="reveal group bg-white/[0.03] border border-white/10 hover:border-amber-400/30 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,0,0,0.4)] flex flex-col"
+              style={`transition-delay: ${(i % 3) * 0.1}s;`}
+            >
+              <div class="relative h-48 overflow-hidden flex-shrink-0">
+                <img
+                  src={`${import.meta.env.BASE_URL}${post.data.image}`}
+                  alt={post.data.title}
+                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading={i < 3 ? 'eager' : 'lazy'}
+                  transition:name={`blog-image-${post.slug}`}
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-transparent to-transparent opacity-70"></div>
+              </div>
+
+              <div class="p-6 flex flex-col flex-1">
+                <h2
+                  class="text-lg font-bold text-white mb-2.5 leading-snug group-hover:text-amber-400 transition-colors"
+                  transition:name={`blog-title-${post.slug}`}
+                >
+                  {post.data.title}
+                </h2>
+                <p class="text-white/50 text-sm leading-relaxed mb-6 flex-1">
+                  {post.data.excerpt}
+                </p>
+
+                <div class="flex items-center justify-between gap-3 text-xs text-white/40 pt-4 border-t border-white/8">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <span class="flex-shrink-0 w-6 h-6 rounded-full bg-amber-400/15 text-amber-400 flex items-center justify-center font-bold text-[10px]">
+                      {initials(post.data.author)}
+                    </span>
+                    <span class="truncate">{post.data.author}</span>
+                  </div>
+                  <div class="flex items-center gap-3 flex-shrink-0">
+                    <span>{dateFormatter.format(post.data.publishDate)}</span>
+                    <span class="flex items-center gap-1 text-rose-400/70">
+                      <Fragment set:html={heartIcon} />
+                      {post.data.likes}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
